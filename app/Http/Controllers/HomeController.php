@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,17 +24,18 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        // $request->user()->authorizeRoles(['admin', 'pharmacist', 'customer']);
-        // if ($request->user()->hasRole('admin'))
-        // {
-        //     return view('/admin');
-        // }
-        // if ($request->user()->hasRole('pharmacist')){
-        //     return view('/pharmacist');
-        // }
-        // if ($request->user()->hasRole('customer')){
-        //     return view('/customer');
-        // }
-        return view('home');
+        // DD($request->email);
+        $request->user()->authorizeRoles(['admin', 'pharmacist', 'customer']);
+        if ($request->user()->hasRole('admin'))
+        {
+            return view('admin.dashboard');
+        }
+        if ($request->user()->hasRole('pharmacist')){
+            return view('pharmacist.dashboard');
+        }
+        if ($request->user()->hasRole('customer')){
+            return view('customer.dashboard');
+        }
+        // return view('/');
     }
 }

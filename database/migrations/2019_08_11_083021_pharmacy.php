@@ -30,10 +30,11 @@ class Pharmacy extends Migration
             $table->increments('id');
             $table->unsignedInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employee');
+            $table->string('company_name');
+            $table->integer('pan_number');
             $table->string('address');
+            $table->string('email')->unique();
             $table->integer('phone_number');
-            $table->string('gender');
-            $table->string('position');
             $table->timestamps();
         });
 

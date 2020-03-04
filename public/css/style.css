@@ -1,0 +1,63 @@
+header{
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+.navbar{
+  padding: 14px 0;
+}
+.navbar-brand img{
+  height: 80px;
+  display: block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.nav-item{
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #262626;
+  padding: .7rem;
+}
+.navbar-light .navbar-nav .nav-item .nav-link:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link{
+  background: #262626;
+  color: #fff;
+}
+.navbar-light ,navbar-nav .nav-item .nav-link{
+  color: #262626;
+  padding: 5px 25px;
+  
+}
+#banner{
+  background-image: url(../images/background.jpg) ;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 250px 0 200px;
+}
+.text{
+  text-align: center;
+  font-family: verdana;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-transform: uppercase;
+}
+.text h1{
+  margin: 15px;
+  font-size: 50px;
+  font-family: Elephant;
+}
+.text h2{
+  margin: 30px;
+  font-family: inherit;
+  font-style: italic;
+  font-size: 35px;
+}
+.text a{
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+.page-footer{
+  background-color: #4a7182;;
+}

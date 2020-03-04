@@ -16,9 +16,38 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/home','HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin', 'HomeController@index')->name('admin');
+// Route::get('/pharmacist/personal','PageController@personal');
+// Route::get('/index', 'PageController@index');
 
-Route::get('/admin', function() {
-    return view('/admin.dashboard');
+
+
+// Admin Route list
+Route::group(['middleware' => ['admin']], function(){
+        Route::post('/pharmacistRegister', 'PharmacistRegisterController@registers')->name('pharmacistRegister');
+        Route::resource('manage', 'ManageController');
+        Route::get('enter', 'PageController@pharmacist');
 });
+// Pharmacist Route list
+Route::group(['middleware' => ['pharmacist']], function(){
+    Route::resource('personal', 'PersonalController');
+    Route::resource('medicine', 'MedicineController');
+    Route::resource('supplier', 'SupplierController');
+    Route::resource('stock', 'StockController');
+});
+
+
+// Route::get('/admin', function() {
+//     return view('/admin.home');
+// });
+// Route::get('/pharmacy', function(){
+//     return view('/pharmacist.dashboard');
+// });
+// Route::get('/customer', function(){
+//     return view('/customer.dashboard');
+// });
+// Route::post('/register', function(){
+//     return view('/auth.pharmacistRegister');
+// });
